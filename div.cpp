@@ -193,7 +193,9 @@ else if(s1.length()<s2.length()){
          return 2;}
 }
 int main()
-{
+{     int t;
+    cin>>t;
+ while(t>0){
         string s1,s2;
  	cin>>s1>>s2;
            string temp1;
@@ -242,6 +244,8 @@ long long int q=0;
 
    cout<<"Quoteint "<<q<<endl;
    cout<<"Remainder "<<s1<<endl;
+ t--;
+ }
    
 }
 
