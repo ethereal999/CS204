@@ -137,6 +137,9 @@ return g1;
 
 
 int main(){ 
+   int t;
+   cin>>t;
+   while(t>0){
     string s1,s2;
    cin>>s1>>s2;
    string temp1,temp2;
@@ -158,8 +161,8 @@ else{
    cout<<"-"<<temp2<<endl;
 }
 
-
-
+t--;
+   }
 
 
 }
