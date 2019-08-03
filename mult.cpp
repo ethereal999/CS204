@@ -3,7 +3,9 @@
 using namespace std;
 
 int main()
-{
+{   int t;
+ cin>>t;
+   while(t>0){
     string s1,s2;
     cin>>s1>>s2;
     int l1,l2;
@@ -35,6 +37,8 @@ int main()
         cout<<arr[i];
     }
     }
+       t--;
+   }
 
 }
 
