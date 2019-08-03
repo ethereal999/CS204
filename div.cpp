@@ -140,7 +140,7 @@ string sub(string s1,string s2){
 string temp1,temp2;
    
    int maxx=max(s1.length(),s2.length());
-int mi=min(s1.length(),s2.length());
+
  
 temp1=comp(s2,maxx);
 
@@ -200,7 +200,7 @@ int main()
         temp1=s2;
         int l1=s1.length();
 	int l2=s2.length();
-     	int k=compare(s1,s2);
+     	
 	int p= l1-l2; 
         int times=0;
 long long int q=0;
