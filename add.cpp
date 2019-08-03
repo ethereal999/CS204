@@ -3,6 +3,9 @@
 #include <algorithm>
 using namespace std;
 int main(){
+    int t;
+    cin>>t;
+    while(t>0){
     string s1,s2;
     cin>>s1>>s2;
    string s3,s4;
@@ -93,6 +96,6 @@ for(int i=0;i<mx+1;i++){
 }
 }
 
-
-
+t--;
+    }
 }
