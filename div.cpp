@@ -166,31 +166,34 @@ int i = 0;
     int flag = -1;
    if(s1.length()>s2.length()){
    flag =0;
+   return flag;
 }
 else if(s1.length()<s2.length()){
 	flag=1;
+	return flag;
 }
     else{
    for(i = 0; i < s1.length(); i++)
     {
-        
-        
+
+
         if ((s1[i] - '0') < (s2[i] - '0'))
         {
             flag =  1;
-            //break;
+            return flag;
+
         }
+        else if((s1[i] - '0') > (s2[i] - '0')){
+            flag=0;
+            return flag;
+            }
     }
         if(flag==-1){
 	flag=2;
+	return flag;
 	}
 }
-    if(flag == 0)
-       { return 0;}
-    else if(flag ==1)
-       { return 1;}
-    else{
-         return 2;}
+
 }
 int main()
 {     int t;
