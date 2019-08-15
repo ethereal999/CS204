@@ -97,16 +97,17 @@ int Length(struct node *head){
 }
 
 
-void searchd(struct node *head,int d){
+int searchd(struct node *head,int d){
     struct node *temp=head;
      int l=0;
+	int count=0;
     while(1){
         if(temp==NULL){
             
             break;
         }
          if(d>=sqrt(((temp->x)*(temp->x)+(temp->y)*(temp->y)))){
-            cout<<"("<<temp->x<<","<<temp->y<<")"<<" ";
+            count++;
             l++;
         }
 
@@ -115,7 +116,8 @@ void searchd(struct node *head,int d){
 
     }
     cout<<endl;
-    if(l==0){cout<<"No Point"<<endl;}
+    if(l==0){return -1;}
+	else{return count;}
 
 
 
