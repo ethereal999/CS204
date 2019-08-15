@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -79,7 +81,7 @@ return "False";}
     else temp = temp->next;
     }
             if(temp == NULL)
-		return "False";       
+		return "False";
 else
             return "True";
 }
@@ -99,25 +101,25 @@ int Length(struct node *head){
 
 int searchd(struct node *head,int d){
     struct node *temp=head;
-     int l=0;
-	int count=0;
+
+	int cnt=0;
     while(1){
         if(temp==NULL){
-            
+
             break;
         }
          if(d>=sqrt(((temp->x)*(temp->x)+(temp->y)*(temp->y)))){
-            count++;
-            l++;
+            cnt++;
+
         }
 
 
      temp=temp->next;
 
     }
-    cout<<endl;
-    if(l==0){return -1;}
-	else{return count;}
+
+    if(cnt==0){return -1;}
+	else{return cnt;}
 
 
 
@@ -157,9 +159,11 @@ int main()
 
 		switch (A[i][0]){
 			case 1: AddFirst(&start,A[i][1],A[i][2]);break;
-			case 2:	cout<<DelFirst(&start)<<endl;break;
-			case 3: cout<<Del(&start,A[i][1],A[i][2])<<endl;break;
-			case 4:	searchd(start,A[i][1]);break;
+			case 2:	if(DelFirst(&start)==-1){cout<<DelFirst(&start)<<endl;}
+			          break;
+			case 3: if(Del(&start,A[i][1],A[i][2])==-1) {cout<<Del(&start,A[i][1],A[i][2])<<endl;}
+			            break;
+			case 4:	cout<<searchd(start,A[i][1])<<endl;break;
 			case 5: cout<<searchs(start,A[i][1],A[i][2])<<endl;break;
 			case 6: cout<<Length(start)<<endl;break;
 		}
