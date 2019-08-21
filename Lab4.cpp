@@ -67,7 +67,11 @@ struct node* createtree(string s){
 
            }
            else {
-            if(checkpre(s[i])>checkpre(st1.top())){
+                if(s[i]=='^' && st1.top()=='^'){
+                 st1.push(s[i]);
+              }
+
+           else if(checkpre(s[i])>checkpre(st1.top())){
                  st1.push(s[i]);
 
             }
@@ -80,8 +84,18 @@ struct node* createtree(string s){
                 struct node* t1=newNode(var);
                 t1->right=st2.top();
                 st2.pop();
+               if(st2.empty()==1){
+                   struct node* un=newNode("0");
+
+                   t1->left =un;
+                }
+                else{
                 t1->left=st2.top();
                 st2.pop();
+
+
+
+              }
 
                  st2.push(t1);
 
@@ -100,11 +114,19 @@ struct node* createtree(string s){
                 struct node* t1=newNode(var);
                 t1->right=st2.top();
                 st2.pop();
+                if(st2.empty()==1){
+                   struct node* un=newNode("0");
+
+                   t1->left =un;
+                }
+                else{
                 t1->left=st2.top();
                 st2.pop();
 
-                 st2.push(t1);
 
+
+              }
+              st2.push(t1);
               }
               st1.pop();
 
@@ -120,8 +142,18 @@ struct node* createtree(string s){
                 struct node* t1=newNode(var);
                 t1->right=st2.top();
                 st2.pop();
+                if(st2.empty()==1){
+                   struct node* un=newNode("0");
+
+                   t1->left =un;
+                }
+                else{
                 t1->left=st2.top();
                 st2.pop();
+
+
+
+              }
 
                  st2.push(t1);
 
