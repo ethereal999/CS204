@@ -72,7 +72,8 @@ struct node* createtree(string s){
 
             }
             else {
-              while(checkpre(s[i])<=checkpre(st1.top())){
+               while(st1.empty()==0){
+              if(checkpre(s[i])<=checkpre(st1.top())){
                 string var=" ";
                 var[0]=st1.top();
                 st1.pop();
@@ -84,6 +85,7 @@ struct node* createtree(string s){
 
                  st2.push(t1);
 
+              }
               }
               st1.push(s[i]);
             }
@@ -172,11 +174,11 @@ struct node* createtree(string s){
 
 
 int main()
-{   
+{
        int n;
          cin>>n;
       vector<int> ans;
-	
+
     for(int i=0;i<n;i++){
       int l,t;
      cin>>t;
@@ -185,10 +187,10 @@ int main()
     cin>>s;
     int l=eval(createtree(s));
     ans.push_back(l);
-    
-         
+
+
 }
-		
+
 }
  for(int p=0;p<ans.size();p++){
    cout<<ans[p]<<endl;
