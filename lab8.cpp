@@ -3,6 +3,7 @@
 #include<cstdlib>
 #include<cmath>
 #include<bits/stdc++.h>
+#define lli long long int
 using namespace std;
 
 void swap_p(double *a, double *b)
@@ -11,10 +12,10 @@ void swap_p(double *a, double *b)
     *a = *b;
     *b = temp;
 }
-int partition_k(double arr[], int l, int r, double x)
+int partition_k(double arr[], lli l, lli r, double x)
 {
 
-    int i;
+    lli i;
     for (i=l; i<r; i++)
         if (arr[i] == x)
            break;
@@ -22,7 +23,7 @@ int partition_k(double arr[], int l, int r, double x)
 
 
     i = l;
-    for (int j = l; j <= r - 1; j++)
+    for (lli j = l; j <= r - 1; j++)
     {
         if (arr[j] <= x)
         {
@@ -34,21 +35,21 @@ int partition_k(double arr[], int l, int r, double x)
     return i;
 }
 
-double findMedian(double arr[], int n)
+double findMedian(double arr[], lli n)
 {
     sort(arr,arr+n);
     return arr[n/2];
 }
 
 
-double medianofmed(double arr[], int l, int r, int k)
+double medianofmed(double arr[], lli l, lli r, lli k)
 {
     if (k > 0 && k <= r - l + 1)
     {
-        int n = r-l+1;
+        lli n = r-l+1;
 
 
-        int i;
+        lli i;
         double median[(n+4)/5];
         for (i=0; i<n/5; i++)
             median[i] = findMedian(arr+l+i*5, 5);
@@ -64,7 +65,7 @@ double medianofmed(double arr[], int l, int r, int k)
 
 
 
-        int pos = partition_k(arr, l, r, medOfMed);
+        lli pos = partition_k(arr, l, r, medOfMed);
 
 
         if (pos-l == k-1)
@@ -85,15 +86,15 @@ double medianofmed(double arr[], int l, int r, int k)
 
 
 int main(){
-  int t;
+  lli t;
   cin>>t;
   vector<double>answ;
-  for(int i=0;i<t;i++){
-    int k;
+  for(lli i=0;i<t;i++){
+    lli k;
     cin>>k;
     double arr[k];
-    for(int j=0;j<k;j++){
-        int x,y;
+    for(lli j=0;j<k;j++){
+        lli x,y;
         cin>>x>>y;
         arr[j]= sqrt((x*x)+(y*y));
 
@@ -102,7 +103,7 @@ int main(){
 
      answ.push_back(ans);
   }
-  for(int i=0;i<t;i++){
+  for(lli i=0;i<t;i++){
 
     cout<<answ[i]<<endl;
   }
