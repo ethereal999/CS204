@@ -66,6 +66,8 @@ int main()
 
     }
     convex_hull(point);
+      cout<<endl;
+     cout <<point.size()<<endl; 
     for(lli i=0;i<point.size();i++){
        cout<< point[i].f << " "<<point[i].s <<endl;
     }
