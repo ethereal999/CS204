@@ -1,74 +1,87 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define M 1000000007
+#define ll long long
+#define vi vector<int>
+#define pii pair<int, int>
 
-struct node{
-	int key;
-	struct node* left;
-	struct node* right;
+
+class node{
+private:
+    int data;
+    struct node* left;
+    struct node* right;
+public:
+    node *newnode(int key){
+        struct node *a = ( node*)malloc(sizeof( node));
+        a->data=key;
+        a->left=NULL;
+        a->right=NULL;
+        return a;
+    }
+
+    node *Insertright( node *root, int key){
+    	if(root == NULL) return newnode(key);
+    	root->right =  Insertright(root->right, key);
+    	return root;
+    }
+
+    node *Insertleft( node *root, int key){
+    	if(root == NULL) return newnode(key);
+    	root->left =  Insertleft(root->left, key);
+    	return root;
+    }
+
+    void inorder( node* root)
+    {
+        if (!root) return;
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+
+    void preorder( node* root) {
+        if(root == NULL) return;
+        cout << root->data << " ";
+        preorder(root->left);
+        preorder(root->right);
+    }
+
+    void postorder( node* root) {
+        if(root == NULL) return;
+        postorder(root->left);
+        postorder(root->right);
+        cout << root->data << " ";
+    }
+
+    bool Search( node* root, int key)
+    {
+        if (root == NULL)
+            return false;
+
+        if (root->data == key)
+            return true;
+
+        bool l = Search(root->left, key);
+
+        bool r = Search(root->right, key);
+
+        return l || r;
+    }
 };
 
-struct node* newNode(int key){
-	struct node* nnode = (struct node*) malloc(sizeof(struct node));
-	nnode->key = key;
-	nnode->left = NULL;
-	nnode->right = NULL;
-}
-
-void insert(struct node* temp, int key)
-{
-    queue<struct node*> q;
-    q.push(temp);
-
-    while (!q.empty()) {
-    struct node* temp = q.front();
-    q.pop();
-
-    if(!temp->left){
-        temp->left = newNode(key);
-        break;
-    }
-
-    else
-        q.push(temp->left);
-
-    if(!temp->right){
-        temp->right = newNode(key);
-        break;
-    }
-
-    else
-        q.push(temp->right);
-    }
-}
-
-void inOrder(struct node* temp) 
-{ 
-    if (!temp) 
-        return; 
-  
-    inOrder(temp->left); 
-    cout << temp->key << " "; 
-    inOrder(temp->right); 
-} 
-
-int main()
-{
-    struct node* root = newNode(10);
-    root->left = newNode(11);
-    root->left->left = newNode(7);
-    root->right = newNode(9);
-    root->right->left = newNode(15);
-    root->right->right = newNode(8);
-
-    cout << "Inorder traversal before insertion:";
-    inOrder(root);
-
-    int key = 12;
-    insert(root, key);
-
-    cout << endl;
-    cout << "Inorder traversal after insertion:";
-    inOrder(root);
-
-    return 0;
+int main(){
+  node *root = NULL;
+	root = root->Insertleft(root, 84);
+	root = root->Insertright(root, 78);
+	root = root->Insertright(root, 74);
+	root = root->Insertright(root, 46);
+	root = root->Insertright(root, 57);
+	root->inorder(root);
+	cout<<endl;
+	root->preorder(root);
+	cout<<endl;
+	root->postorder(root);
+	cout<<endl;
+	cout<<root->Search(root, 84);
 }
